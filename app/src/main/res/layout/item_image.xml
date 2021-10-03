@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="imageResultModel"
+            type="com.kringleimagesearch.data.database.entities.ImageResultModel" />
+    </data>
+<com.google.android.material.imageview.ShapeableImageView
+    android:layout_margin="@dimen/spacing_small"
+    image="@{imageResultModel.thumbnailUrl}"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize2Dp"
+    android:adjustViewBounds="true"
+    tools:src="@tools:sample/backgrounds/scenic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:contentDescription="@{imageResultModel.name}" />
+</layout>

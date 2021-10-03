@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2F3C4C</color>
+    <color name="colorPrimaryDark">#232D39</color>
+    <color name="colorLayoutBackground">#1E2B39</color>
+
+    <color name="colorDialogBg">#364147</color>
+
+    <color name="colorDialogButton">#89CFF0</color>
+    <color name="colorDialogButtonLight">#505AA7CB</color>
+
+    <color name="colorEditTextBg">#505AA7CB</color>
+
+    <color name="colorPlaceholder">#505AA7CB</color>
+</resources>

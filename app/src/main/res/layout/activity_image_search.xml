@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="imageSearchViewModel"
+            type="com.kringleimagesearch.ui.ImageSearchViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ImageSearchActivity">
+
+    <include layout="@layout/partial_toolbar"/>
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/autoSearchImage"
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:singleLine="true"
+        suggestions="@{imageSearchViewModel.suggestionsLiveData}"
+        app:layout_constraintEnd_toStartOf="@+id/imgSearch"
+        android:textSize="14sp"
+        android:hint="@string/hint_search_image"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:padding="@dimen/spacing_large"
+        android:background="@drawable/bg_edit_text_solid_grey"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <!--android:onClick="@{()->imageSearchViewModel.searchImages(autoSearchImage.getText().toString())}"-->
+    <ImageView
+        android:id="@+id/imgSearch"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintTop_toTopOf="@+id/autoSearchImage"
+        app:layout_constraintBottom_toBottomOf="@+id/autoSearchImage"
+        android:layout_marginEnd="@dimen/spacing_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/content_desc_search_image" />
+
+    <!--images="@{imageSearchViewModel.imageResultSearchRespLiveData.data}"-->
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoSearchImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvImages"
+        android:clipToPadding="false"
+        app:spanCount="2"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_image"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="@dimen/spacing_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <include
+        android:id="@+id/partialNoRecord"
+        layout="@layout/partial_no_record" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

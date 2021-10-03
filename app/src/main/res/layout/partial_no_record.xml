@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/ic_dissatisfied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/some_error_occurred" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextAppearance.AppCompat.Small"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/spacing_large"
+        android:text="@string/no_record_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+</layout>

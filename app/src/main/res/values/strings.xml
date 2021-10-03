@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">KringleImageSearch</string>
+
+    <string name="no_internet">No internet connection available</string>
+
+    <string name="some_error_occurred">The server encountered a temporary error and could not complete your request, please retry after a few minutes.</string>
+    <string name="hint_search_image">Search image</string>
+    <string name="content_desc_search_image">click to search image</string>
+    <string name="retry">Retry</string>
+    <string name="activity_title_search_images">Search Images</string>
+    <string name="empty_query">Please enter search term</string>
+    <string name="no_record_found">No record found</string>
+</resources>
