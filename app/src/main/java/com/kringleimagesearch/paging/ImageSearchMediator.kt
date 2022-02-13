@@ -13,6 +13,7 @@ import com.kringleimagesearch.data.database.entities.Suggestion
 import com.kringleimagesearch.data.remote.services.ImageSearchService
 import retrofit2.HttpException
 import java.io.IOException
+import java.lang.Exception
 
 
 const val DEFAULT_PAGE_INDEX = 1
@@ -44,6 +45,10 @@ class ImageSearchMediator(val query:String, val imageSearchService: ImageSearchS
         try {
             val offset = (page - 1) * state.config.pageSize
             val response = imageSearchService.searchImagesAsync(query, offset, state.config.pageSize)
+            if (response.code()==404){
+                return MediatorResult.Error(Exception("invalid url"))
+            }
+
             var list= response.body()?.data
             list = list?.map { it.qry=query.trim()
                 it

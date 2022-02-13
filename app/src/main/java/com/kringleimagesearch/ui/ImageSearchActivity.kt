@@ -1,6 +1,7 @@
 package com.kringleimagesearch.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -81,7 +82,14 @@ class ImageSearchActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 binding.swipeRefresh.setOnRefreshListener { refresh() }
 
+
                 loadStateFlow.collectLatest {
+
+                    (it.append as? LoadState.Error)?.let{
+                        showToast("error occurred")
+                        Log.d("error",it.error.message?:"")
+                    }
+
                     binding.swipeRefresh.isRefreshing = it.refresh is LoadState.Loading
 
                     if (it.append is LoadState.NotLoading && it.append.endOfPaginationReached) {

@@ -30,3 +30,8 @@ fun Context.isNetworkAvailable(): Boolean {
 fun Context.showToast(@StringRes stringResId:Int){
     Toast.makeText(this, getString(stringResId), Toast.LENGTH_SHORT).show()
 }
+
+
+fun Context.showToast(message:String){
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
