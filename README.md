@@ -7,4 +7,4 @@ Image search app built using bing image search API via paging 3.
 - [x] Dark theme support
 
 ## Screenshot:
-<img src="https://github.com/suraj-vaish9av/image-search/blob/master/screenshot.jpg?raw=true" width="30%"/>
+<img src="https://github.com/suraj-vaish9av/image-search/blob/master/screenshot.jpg?raw=true" width="40%"/>
